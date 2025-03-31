@@ -1,0 +1,12 @@
+//
+//  HomeScreenViewModelProtocol.swift
+//  DocApp
+//
+//  Created by Majlinda on 31.3.25.
+//
+
+import Foundation
+
+protocol HomeScreenViewModelProtocol : BaseViewModel {
+    var coordinatorDelegate : HomeScreenViewModelCoordinatorDelegate? {get set}
+}
