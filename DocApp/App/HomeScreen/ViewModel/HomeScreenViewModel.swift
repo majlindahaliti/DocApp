@@ -20,6 +20,10 @@ class HomeScreenViewModel: HomeScreenViewModelProtocol{
     func showDetailsScreen() {
         self.coordinatorDelegate?.showDetailsScreen()
     }
+    
+    func showAllPages() {
+        self.coordinatorDelegate?.showAllPages()
+    }
 }
 
 extension HomeScreenViewModel: SectionsListDataSourceProtocol{

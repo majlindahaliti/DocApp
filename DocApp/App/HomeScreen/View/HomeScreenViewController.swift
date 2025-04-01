@@ -43,6 +43,11 @@ class HomeScreenViewController: UIViewController, Storyboarded {
         self.tableView.delegate = self.viewModel?.dataSource
         self.tableView.dataSource = self.viewModel?.dataSource
     }
+    
+    //MARK: - IBActions
+    @IBAction func seeAllPagesButtonPressed(_ sender: Any) {
+        self.viewModel?.showAllPages()
+    }
 }
 
 extension HomeScreenViewController : HomeScreenViewModelViewProtocol {

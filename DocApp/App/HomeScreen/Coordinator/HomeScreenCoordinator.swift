@@ -14,6 +14,7 @@ class HomeScreenCoordinator: PushCoordinator{
     var navigationController: UINavigationController?
     var viewModel : HomeScreenViewModelProtocol
     var detailsScreenCoordinator: DetailsScreenCoordinator?
+    var allPagesScreenCoordinator: AllPagesCoordinator?
     
     init(viewModel: HomeScreenViewModelProtocol, navigationController:UINavigationController?) {
         self.viewModel = viewModel
@@ -28,5 +29,10 @@ extension HomeScreenCoordinator: HomeScreenViewModelCoordinatorDelegate{
     func showDetailsScreen() {
         detailsScreenCoordinator = DetailsScreenCoordinator(viewModel: DetailsScreenViewModel(), navigationController: self.viewController?.navigationController)
         detailsScreenCoordinator?.start()
+    }
+    
+    func showAllPages() {
+        allPagesScreenCoordinator = AllPagesCoordinator(viewModel: AllPagesViewModel(), navigationController: self.viewController?.navigationController)
+        allPagesScreenCoordinator?.start()
     }
 }

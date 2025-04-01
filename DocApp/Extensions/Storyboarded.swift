@@ -30,6 +30,10 @@ extension UIStoryboard {
     static var detailsScreen: UIStoryboard {
         return UIStoryboard(name: "DetailsScreen", bundle: nil)
     }
+    
+    static var allPages: UIStoryboard {
+        return UIStoryboard(name: "AllPagesScreen", bundle: nil)
+    }
 }
 
 extension UIStoryboard {

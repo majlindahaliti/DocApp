@@ -107,6 +107,9 @@
                                         <state key="normal" title="See all pages">
                                             <color key="titleColor" red="0.0028508172479911145" green="0.566540023197873" blue="0.96611279249191284" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
+                                        <connections>
+                                            <action selector="seeAllPagesButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="wdy-KD-FkT"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
