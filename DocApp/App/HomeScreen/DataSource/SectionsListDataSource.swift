@@ -15,15 +15,12 @@ protocol SectionsListDataSourceProtocol: AnyObject {
 
 class SectionsListDataSource: NSObject {
     // MARK: - Properties
-    
     var items: [(section: SectionItem, mItems: [SectionItem])] = [
         (SectionItem(title: "Section 1"), [SectionItem(title: "Item 1.1"), SectionItem(title: "Item 1.2")]),
         (SectionItem(title: "Section 2"), [SectionItem(title: "Item 2.1"), SectionItem(title: "Item 2.2")]),
         (SectionItem(title: "Section 3"), [SectionItem(title: "Item 3.1"), SectionItem(title: "Item 3.2")])
     ]
-    
     var expandedSectionHeaderNumber = -1
-    
     weak var delegate: SectionsListDataSourceProtocol?
 }
 

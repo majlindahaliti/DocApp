@@ -45,17 +45,6 @@ class HomeScreenViewController: UIViewController, Storyboarded {
     }
 }
 
-//MARK : Coordinated
-extension HomeScreenViewController : Coordinated {
-    func getCoordinator() -> Coordinator? {
-        return coordinator
-    }
-    
-    func setCoordinator(_ coordinator: Coordinator) {
-        self.coordinator = coordinator as? HomeScreenCoordinator
-    }
-}
-
 extension HomeScreenViewController : HomeScreenViewModelViewProtocol {
 
     func selectedRow(row: Int, hasChild: Bool) {
@@ -70,5 +59,16 @@ extension HomeScreenViewController : HomeScreenViewModelViewProtocol {
     
     func updateSection(section: [Int]) {
         self.tableView.reloadSections(IndexSet(section), with: .none)
+    }
+}
+
+//MARK : Coordinated
+extension HomeScreenViewController : Coordinated {
+    func getCoordinator() -> Coordinator? {
+        return coordinator
+    }
+    
+    func setCoordinator(_ coordinator: Coordinator) {
+        self.coordinator = coordinator as? HomeScreenCoordinator
     }
 }

@@ -16,6 +16,10 @@ class HomeScreenViewModel: HomeScreenViewModelProtocol{
         subsectionsDataSource = SubsectionsListDataSourceDataSource()
         dataSource?.delegate = self
     }
+    
+    func showDetailsScreen() {
+        self.coordinatorDelegate?.showDetailsScreen()
+    }
 }
 
 extension HomeScreenViewModel: SectionsListDataSourceProtocol{

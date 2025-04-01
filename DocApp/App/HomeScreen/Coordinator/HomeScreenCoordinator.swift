@@ -8,21 +8,25 @@
 import Foundation
 import UIKit
 
-protocol HomeScreenCoordinatorDelegate {
-}
-
 class HomeScreenCoordinator: PushCoordinator{
     var configuration: ((HomeScreenViewController) -> ())?
     var viewController : HomeScreenViewController?
     var navigationController: UINavigationController?
     var viewModel : HomeScreenViewModelProtocol
+    var detailsScreenCoordinator: DetailsScreenCoordinator?
     
     init(viewModel: HomeScreenViewModelProtocol, navigationController:UINavigationController?) {
         self.viewModel = viewModel
-       // self.viewModel.coordinatorDelegate = self
+        self.viewModel.coordinatorDelegate = self
         self.navigationController = navigationController
         self.viewController = HomeScreenViewController.instantiate(.homeScreen)
         self.viewController?.viewModel = viewModel
     }
 }
 
+extension HomeScreenCoordinator: HomeScreenViewModelCoordinatorDelegate{
+    func showDetailsScreen() {
+        detailsScreenCoordinator = DetailsScreenCoordinator(viewModel: DetailsScreenViewModel(), navigationController: self.viewController?.navigationController)
+        detailsScreenCoordinator?.start()
+    }
+}
