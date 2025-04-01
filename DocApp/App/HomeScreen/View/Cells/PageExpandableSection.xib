@@ -14,19 +14,19 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DTe-5s-HlS">
-                    <rect key="frame" x="16" y="8" width="551" height="89"/>
+                    <rect key="frame" x="16" y="8" width="551" height="97"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="JhO-8E-h9x">
-                            <rect key="frame" x="12" y="33.666666666666664" width="527" height="21.666666666666664"/>
+                            <rect key="frame" x="12" y="38.333333333333336" width="527" height="20.333333333333336"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T9a-ay-PA3">
-                                    <rect key="frame" x="0.0" y="0.0" width="497" height="21.666666666666668"/>
-                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="497" height="20.333333333333332"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="expand_more" translatesAutoresizingMaskIntoConstraints="NO" id="3Yp-Of-KTh">
-                                    <rect key="frame" x="512" y="3.3333333333333357" width="15" height="15"/>
+                                    <rect key="frame" x="512" y="2.6666666666666643" width="15" height="15"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="15" id="BWL-Bq-GvR"/>
                                         <constraint firstAttribute="height" constant="15" id="VMB-7A-y7i"/>
@@ -35,7 +35,7 @@
                             </subviews>
                         </stackView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4LH-K9-rKM">
-                            <rect key="frame" x="0.0" y="88" width="551" height="1"/>
+                            <rect key="frame" x="0.0" y="96" width="551" height="1"/>
                             <color key="backgroundColor" red="0.13725490200000001" green="0.21176470589999999" blue="0.27058823529999998" alpha="0.29744412251655628" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="CDA-IF-Iur"/>
@@ -57,7 +57,7 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="DTe-5s-HlS" secondAttribute="trailing" constant="16" id="8ZD-Dd-mS7"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="DTe-5s-HlS" secondAttribute="bottom" constant="8" id="EXY-a6-5h5"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="DTe-5s-HlS" secondAttribute="bottom" id="EXY-a6-5h5"/>
                 <constraint firstItem="DTe-5s-HlS" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="GE6-kL-VIC"/>
                 <constraint firstItem="DTe-5s-HlS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="Sw5-Wa-rKK"/>
             </constraints>

@@ -8,10 +8,12 @@
 class HomeScreenViewModel: HomeScreenViewModelProtocol{
     weak var coordinatorDelegate : HomeScreenViewModelCoordinatorDelegate?
     var dataSource: SectionsListDataSource?
+    var subsectionsDataSource: SubsectionsListDataSourceDataSource?
     weak var viewDelegate: HomeScreenViewModelViewProtocol?
     
     public init(){
         dataSource = SectionsListDataSource()
+        subsectionsDataSource = SubsectionsListDataSourceDataSource()
         dataSource?.delegate = self
     }
 }
