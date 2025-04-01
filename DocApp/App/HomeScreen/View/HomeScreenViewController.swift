@@ -14,6 +14,7 @@ class HomeScreenViewController: UIViewController, Storyboarded {
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var noDataStackView: UIStackView!
+    @IBOutlet weak var mainTitleLabel: UILabel!
     
     //MARK: - Properties
     var viewModel: HomeScreenViewModelProtocol?
