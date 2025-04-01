@@ -10,7 +10,6 @@ import UIKit
 class SubsectionTableViewCell: UITableViewCell {
 
     @IBOutlet weak var coverImageView: UIImageView!
-    @IBOutlet weak var detailImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var tableView: ContentSizedTableView!
     @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!

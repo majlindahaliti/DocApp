@@ -34,6 +34,4 @@ extension HomeScreenViewModel: SectionsListDataSourceProtocol{
     func selectedRow(row: Int, hasChild: Bool) {
         print("selectedRow tapped")
     }
-    
-    
 }
