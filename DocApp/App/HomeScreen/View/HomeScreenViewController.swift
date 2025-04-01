@@ -9,14 +9,38 @@ import UIKit
 
 class HomeScreenViewController: UIViewController, Storyboarded {
     
+    //MARK: - IBOutlets
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var noDataStackView: UIStackView!
+    
     //MARK: - Properties
     var viewModel: HomeScreenViewModelProtocol?
     var coordinator: HomeScreenCoordinator?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setupUI()
+        setupTable()
+    }
+    
+    //MARK: - Functions
+    func setupUI(){
+        self.viewModel?.viewDelegate = self
+        tableView.sectionHeaderHeight = 0
+        tableView.sectionFooterHeight = 0
+        dispatch{
+            self.containerView.roundCorners(corners: [.topLeft, .topRight], radius: 30)
+            self.tableView.contentInset = UIEdgeInsets(top: 16, left: 0, bottom: 0, right: 0)
+        }
+    }
+    
+    func setupTable(){
+        self.tableView.register(SubsectionTableViewCell.self)
+        self.tableView.registerHeaderFooter(PageExpandableSection.self)
+        self.tableView.delegate = self.viewModel?.dataSource
+        self.tableView.dataSource = self.viewModel?.dataSource
     }
 }
 
@@ -28,5 +52,22 @@ extension HomeScreenViewController : Coordinated {
     
     func setCoordinator(_ coordinator: Coordinator) {
         self.coordinator = coordinator as? HomeScreenCoordinator
+    }
+}
+
+extension HomeScreenViewController : HomeScreenViewModelViewProtocol {
+
+    func selectedRow(row: Int, hasChild: Bool) {
+//        if !(hasChild){
+//            dismiss(animated: false, completion: nil)
+//        }
+    }
+    
+    func reloadTable() {
+//        self.tableView.reloadData()
+    }
+    
+    func updateSection(section: [Int]) {
+        self.tableView.reloadSections(IndexSet(section), with: .none)
     }
 }

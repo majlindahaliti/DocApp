@@ -9,4 +9,6 @@ import Foundation
 
 protocol HomeScreenViewModelProtocol : BaseViewModel {
     var coordinatorDelegate : HomeScreenViewModelCoordinatorDelegate? {get set}
+    var dataSource: SectionsListDataSource? {get}
+    var viewDelegate: HomeScreenViewModelViewProtocol? {get set}
 }

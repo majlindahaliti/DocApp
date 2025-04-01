@@ -15,9 +15,109 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gFj-3Y-XwC">
+                                <rect key="frame" x="16" y="79" width="361" height="40"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search..." textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tfK-ym-nlh">
+                                        <rect key="frame" x="15" y="0.0" width="306" height="40"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search" translatesAutoresizingMaskIntoConstraints="NO" id="bxW-Vu-BM5">
+                                        <rect key="frame" x="331" y="10" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="YoL-dr-m8C"/>
+                                            <constraint firstAttribute="height" constant="20" id="heJ-tj-fua"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="EYS-SI-7C6"/>
+                                    <constraint firstItem="bxW-Vu-BM5" firstAttribute="leading" secondItem="tfK-ym-nlh" secondAttribute="trailing" constant="10" id="Qqs-e9-Z52"/>
+                                    <constraint firstItem="tfK-ym-nlh" firstAttribute="leading" secondItem="gFj-3Y-XwC" secondAttribute="leading" constant="15" id="SgO-Jb-6DG"/>
+                                    <constraint firstItem="tfK-ym-nlh" firstAttribute="top" secondItem="gFj-3Y-XwC" secondAttribute="top" id="WDR-sc-z1J"/>
+                                    <constraint firstAttribute="trailing" secondItem="bxW-Vu-BM5" secondAttribute="trailing" constant="10" id="b7N-4a-Mf1"/>
+                                    <constraint firstAttribute="bottom" secondItem="tfK-ym-nlh" secondAttribute="bottom" id="hfM-mA-2KZ"/>
+                                    <constraint firstItem="bxW-Vu-BM5" firstAttribute="centerY" secondItem="gFj-3Y-XwC" secondAttribute="centerY" id="sOu-tU-ecl"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="19"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.20000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="2" height="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CHa-1T-uRE">
+                                <rect key="frame" x="0.0" y="135" width="393" height="717"/>
+                                <subviews>
+                                    <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="UBm-rC-EqE">
+                                        <rect key="frame" x="108.33333333333337" y="243.33333333333331" width="176.66666666666663" height="39.333333333333314"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbG-YE-F8f">
+                                                <rect key="frame" x="54.666666666666664" y="0.0" width="67.666666666666686" height="22.333333333333332"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There is not any data found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="REx-Gj-Hvg">
+                                                <rect key="frame" x="0.0" y="22.333333333333343" width="176.66666666666666" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="AjD-m0-kGh">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="717"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="AjD-m0-kGh" firstAttribute="leading" secondItem="CHa-1T-uRE" secondAttribute="leading" id="CcP-7E-POa"/>
+                                    <constraint firstAttribute="bottom" secondItem="AjD-m0-kGh" secondAttribute="bottom" id="DYh-Ub-8fC"/>
+                                    <constraint firstAttribute="trailing" secondItem="AjD-m0-kGh" secondAttribute="trailing" id="PTe-wF-vmM"/>
+                                    <constraint firstItem="AjD-m0-kGh" firstAttribute="top" secondItem="CHa-1T-uRE" secondAttribute="top" id="RAQ-gC-qGc"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                        <color key="backgroundColor" red="0.13725490196078433" green="0.21176470588235294" blue="0.27058823529411763" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="gFj-3Y-XwC" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="9lc-Qe-ob6"/>
+                            <constraint firstAttribute="bottom" secondItem="CHa-1T-uRE" secondAttribute="bottom" id="IOk-XR-j98"/>
+                            <constraint firstItem="gFj-3Y-XwC" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="Ooa-3S-yji"/>
+                            <constraint firstItem="CHa-1T-uRE" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="UNr-qG-Aos"/>
+                            <constraint firstItem="CHa-1T-uRE" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="W7l-Za-naX"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="gFj-3Y-XwC" secondAttribute="trailing" constant="16" id="m8u-eG-hO2"/>
+                            <constraint firstItem="CHa-1T-uRE" firstAttribute="top" secondItem="gFj-3Y-XwC" secondAttribute="bottom" constant="16" id="vOe-9Y-CTe"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="containerView" destination="CHa-1T-uRE" id="kx6-Mx-FS3"/>
+                        <outlet property="noDataStackView" destination="UBm-rC-EqE" id="1da-mg-Fwa"/>
+                        <outlet property="searchTextField" destination="tfK-ym-nlh" id="qvi-uA-QXF"/>
+                        <outlet property="tableView" destination="AjD-m0-kGh" id="Bxu-ep-4fA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -25,8 +125,9 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <image name="search" width="29" height="29"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>
