@@ -9,5 +9,6 @@ target 'DocApp' do
   pod 'Alamofire'
   pod 'PromisedFuture'
   pod 'Kingfisher'
+  pod 'ImageViewer.swift', '~> 3.0'
   
 end

@@ -15,11 +15,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coverImg" translatesAutoresizingMaskIntoConstraints="NO" id="TXx-oS-x2U">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coverImg" translatesAutoresizingMaskIntoConstraints="NO" id="TXx-oS-x2U">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="250"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="cba-0q-pZe"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Dvy-vq-3Ya" appends="YES" id="8vl-Ph-H4F"/>
+                                </connections>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pXw-jd-Iwh">
                                 <rect key="frame" x="16" y="280" width="361" height="24"/>
@@ -70,6 +74,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Dvy-vq-3Ya">
+                    <connections>
+                        <action selector="imageTapped:" destination="Y6W-OH-hqX" id="WGL-0s-ZLM"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="61" y="-2"/>
         </scene>

@@ -1,24 +1,28 @@
 PODS:
   - Alamofire (5.9.1)
+  - ImageViewer.swift (3.3.8)
   - Kingfisher (8.0.3)
   - PromisedFuture (1.0.2)
 
 DEPENDENCIES:
   - Alamofire
+  - ImageViewer.swift (~> 3.0)
   - Kingfisher
   - PromisedFuture
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - ImageViewer.swift
     - Kingfisher
     - PromisedFuture
 
 SPEC CHECKSUMS:
   Alamofire: f36a35757af4587d8e4f4bfa223ad10be2422b8c
+  ImageViewer.swift: 284cd8127d31af8e5938674fb9f8e695a4cdf6c6
   Kingfisher: bbf78af014cc845cf9a799363f627b5212784165
   PromisedFuture: 15ab3542f9d9c9d62886e2228c606a3e0fd16ccd
 
-PODFILE CHECKSUM: 4cd56881c3d9da0fa0b8f9401ef0893f61b97d15
+PODFILE CHECKSUM: 0982bf7a74ab7f20acf1d78dec99ab1793445578
 
 COCOAPODS: 1.16.2

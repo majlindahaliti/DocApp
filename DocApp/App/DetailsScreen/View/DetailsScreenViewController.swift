@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ImageViewer_swift
 
 class DetailsScreenViewController: UIViewController, Storyboarded {
     
@@ -40,6 +41,11 @@ class DetailsScreenViewController: UIViewController, Storyboarded {
     //MARK: - IBActions
     @IBAction func backButtonPressed(_ sender: Any) {
         self.coordinator?.stop()
+    }
+    
+    @IBAction func imageTapped(_ sender: Any) {
+        self.coverImageView.setupImageViewer()
+
     }
 }
 
