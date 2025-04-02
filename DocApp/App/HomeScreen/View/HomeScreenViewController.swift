@@ -73,17 +73,6 @@ class HomeScreenViewController: UIViewController, Storyboarded {
 }
 
 extension HomeScreenViewController : HomeScreenViewModelViewProtocol {
-
-    func selectedRow(row: Int, hasChild: Bool) {
-//        if !(hasChild){
-//            dismiss(animated: false, completion: nil)
-//        }
-    }
-    
-    func reloadTable() {
-//        self.tableView.reloadData()
-    }
-    
     func updateSection(section: [Int]) {
         self.tableView.reloadSections(IndexSet(section), with: .none)
     }

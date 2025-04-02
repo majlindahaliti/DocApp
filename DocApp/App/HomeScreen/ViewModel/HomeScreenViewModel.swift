@@ -15,6 +15,7 @@ class HomeScreenViewModel: HomeScreenViewModelProtocol{
         dataSource = SectionsListDataSource()
         subsectionsDataSource = SubsectionsListDataSourceDataSource()
         dataSource?.delegate = self
+        subsectionsDataSource?.delegate = self
     }
     
     func getPageDetails(completion: @escaping ((PageDetailsResponse?, Error?) -> Void)) {
@@ -44,20 +45,20 @@ class HomeScreenViewModel: HomeScreenViewModelProtocol{
     }
 }
 
+extension HomeScreenViewModel: SubsectionsListDataSourceDataSourceProtocol{
+    func showDetails(item: ItemItem) {
+        self.showDetailsScreen(item: item)
+    }
+}
+
 extension HomeScreenViewModel: SectionsListDataSourceProtocol{
     func itemTapped(item: ItemItem, hasChilds: Bool) {
-        if hasChilds {
-            self.viewDelegate?.reloadTable()
-        }else{
+        if !hasChilds {
             self.showDetailsScreen(item: item)
         }
     }
     
     func updateSection(section: [Int]) {
         self.viewDelegate?.updateSection(section: section)
-    }
-    
-    func selectedRow(row: Int, hasChild: Bool) {
-        print("selectedRow tapped")
     }
 }

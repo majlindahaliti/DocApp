@@ -8,7 +8,5 @@
 import Foundation
 
 protocol HomeScreenViewModelViewProtocol: AnyObject {
-    func reloadTable()
     func updateSection(section: [Int])
-    func selectedRow(row: Int, hasChild: Bool)
 }

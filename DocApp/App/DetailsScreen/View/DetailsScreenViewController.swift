@@ -35,7 +35,6 @@ class DetailsScreenViewController: UIViewController, Storyboarded {
             self.coverImageView.setImage(with: img)
         }
         self.titleLabel.text = self.viewModel?.item?.title
-//        self.bodyLabel.text = self.viewModel.
     }
     
     //MARK: - IBActions

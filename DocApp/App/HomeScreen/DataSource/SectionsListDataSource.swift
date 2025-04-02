@@ -10,7 +10,6 @@ import UIKit
 protocol SectionsListDataSourceProtocol: AnyObject {
     func itemTapped(item: ItemItem, hasChilds: Bool)
     func updateSection(section: [Int])
-    func selectedRow(row: Int, hasChild: Bool)
 }
 
 class SectionsListDataSource: NSObject {
@@ -24,8 +23,7 @@ extension SectionsListDataSource: UITableViewDataSource, UITableViewDelegate {
     // Delegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = self[indexPath]
-        self.delegate?.itemTapped(item: item, hasChilds: false)
-        self.delegate?.selectedRow(row: indexPath.row, hasChild: false)
+        self.delegate?.itemTapped(item: item, hasChilds: ((item.items?.count) != nil))
     }
     
     // Data Source
@@ -71,7 +69,6 @@ extension SectionsListDataSource: UITableViewDataSource, UITableViewDelegate {
         if hasChilds, let item = self.items[section].items.first {
             self.delegate?.itemTapped(item: item, hasChilds: hasChilds)
         }
-        self.delegate?.selectedRow(row: section, hasChild: hasChilds)
         
         if (self.expandedSectionHeaderNumber == -1) {
             self.expandedSectionHeaderNumber = section
