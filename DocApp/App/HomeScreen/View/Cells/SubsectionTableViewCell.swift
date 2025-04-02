@@ -28,6 +28,10 @@ class SubsectionTableViewCell: UITableViewCell {
         setupTable()
         // Initialization code
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -42,11 +46,12 @@ class SubsectionTableViewCell: UITableViewCell {
     }
     
     func setValues(){
+        self.viewModel?.populateSubsections(data: [])
         self.titleLabel.text = sectionItem.title
         if let subsections = sectionItem.items{
             self.viewModel?.populateSubsections(data: subsections)
-            self.tableView.reloadData()
-            self.tableViewHeightConstraint.constant = self.tableView.intrinsicContentSize.height
         }
+        self.tableView.reloadData()
+        self.tableViewHeightConstraint.constant = self.tableView.intrinsicContentSize.height
     }
 }

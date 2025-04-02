@@ -67,9 +67,11 @@ extension SectionsListDataSource: UITableViewDataSource, UITableViewDelegate {
     @objc private func sectionHeaderWasTouched(_ sender: UITapGestureRecognizer) {
         let headerView = sender.view as! UITableViewHeaderFooterView
         let section    = headerView.tag
-        let item = self.items[section].items[section]
-        self.delegate?.itemTapped(item: item, hasChilds: items[section].items.count > 0)
-        self.delegate?.selectedRow(row: section, hasChild: items[section].items.count > 0)
+        let hasChilds = !self.items[section].items.isEmpty
+        if hasChilds, let item = self.items[section].items.first {
+            self.delegate?.itemTapped(item: item, hasChilds: hasChilds)
+        }
+        self.delegate?.selectedRow(row: section, hasChild: hasChilds)
         
         if (self.expandedSectionHeaderNumber == -1) {
             self.expandedSectionHeaderNumber = section
