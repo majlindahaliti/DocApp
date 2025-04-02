@@ -13,7 +13,7 @@ protocol HomeScreenViewModelProtocol : BaseViewModel {
     var subsectionsDataSource: SubsectionsListDataSourceDataSource? {get}
     var viewDelegate: HomeScreenViewModelViewProtocol? {get set}
     func showDetailsScreen()
-    func showAllPages()
+    func showAllPages(pages: [SectionsList]?)
     func populateTableView(data: [SectionsList])
     func populateSubsections(data: [ItemItem])
     

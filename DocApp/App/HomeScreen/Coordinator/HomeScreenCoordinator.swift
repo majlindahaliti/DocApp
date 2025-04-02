@@ -31,8 +31,8 @@ extension HomeScreenCoordinator: HomeScreenViewModelCoordinatorDelegate{
         detailsScreenCoordinator?.start()
     }
     
-    func showAllPages() {
-        allPagesScreenCoordinator = AllPagesCoordinator(viewModel: AllPagesViewModel(), navigationController: self.viewController?.navigationController)
+    func showAllPages(pages: [SectionsList]?) {
+        allPagesScreenCoordinator = AllPagesCoordinator(viewModel: AllPagesViewModel(pagesList: pages), navigationController: self.viewController?.navigationController)
         allPagesScreenCoordinator?.start()
     }
 }

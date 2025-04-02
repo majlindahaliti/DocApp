@@ -30,12 +30,13 @@ class HomeScreenViewModel: HomeScreenViewModelProtocol{
         self.coordinatorDelegate?.showDetailsScreen()
     }
     
-    func showAllPages() {
-        self.coordinatorDelegate?.showAllPages()
+    func showAllPages(pages: [SectionsList]?) {
+        self.coordinatorDelegate?.showAllPages(pages: pages)
     }
     
     func populateTableView(data: [SectionsList]) {
-        self.dataSource?.items = data
+        let filteredData = data.filter { $0.type != "page" }
+        self.dataSource?.items = filteredData
     }
     
     func populateSubsections(data: [ItemItem]) {

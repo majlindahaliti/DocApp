@@ -19,6 +19,7 @@ class HomeScreenViewController: UIViewController, Storyboarded {
     //MARK: - Properties
     var viewModel: HomeScreenViewModelProtocol?
     var coordinator: HomeScreenCoordinator?
+    var sectionsList: [SectionsList]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +49,7 @@ class HomeScreenViewController: UIViewController, Storyboarded {
     func getPageDetails(){
         self.viewModel?.getPageDetails(completion: { (response, error) in
             if let model = response {
+                self.sectionsList = model.items
                 self.mainTitleLabel.text = model.title
                 self.viewModel?.populateTableView(data: model.items)
                 if response?.items.count == 0{
@@ -65,7 +67,8 @@ class HomeScreenViewController: UIViewController, Storyboarded {
     
     //MARK: - IBActions
     @IBAction func seeAllPagesButtonPressed(_ sender: Any) {
-        self.viewModel?.showAllPages()
+        let filteredData = sectionsList?.filter { $0.type == "page" }
+        self.viewModel?.showAllPages(pages: filteredData)
     }
 }
 

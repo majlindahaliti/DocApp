@@ -11,7 +11,8 @@ class AllPagesViewModel: AllPagesViewModelProtocol{
     weak var coordinatorDelegate : AllPagesViewModelCoordinatorDelegate?
     var dataSource: AllPagesDataSource?
     
-    public init(){
+    public init(pagesList: [SectionsList]?){
         dataSource = AllPagesDataSource()
+        dataSource?.allPages = pagesList
     }
 }
