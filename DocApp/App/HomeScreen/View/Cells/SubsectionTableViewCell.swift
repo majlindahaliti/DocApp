@@ -17,7 +17,7 @@ class SubsectionTableViewCell: UITableViewCell {
     var viewModel: HomeScreenViewModelProtocol?
     
     //MARK: - Properties
-    var sectionItem: ItemItem!{
+    var sectionItem: SectionsList!{
         didSet{
             setValues()
         }

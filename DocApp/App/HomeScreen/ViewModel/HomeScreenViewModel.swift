@@ -31,7 +31,7 @@ class HomeScreenViewModel: HomeScreenViewModelProtocol{
         })
     }
     
-    func showDetailsScreen(item: ItemItem) {
+    func showDetailsScreen(item: SectionsList) {
         self.coordinatorDelegate?.showDetailsScreen(item: item)
     }
     
@@ -44,19 +44,19 @@ class HomeScreenViewModel: HomeScreenViewModelProtocol{
         self.dataSource?.items = filteredData
     }
     
-    func populateSubsections(data: [ItemItem]) {
+    func populateSubsections(data: [SectionsList]) {
         self.subsectionsDataSource?.subsectionsList = data
     }
 }
 
 extension HomeScreenViewModel: SubsectionsListDataSourceDataSourceProtocol{
-    func showDetails(item: ItemItem) {
+    func showDetails(item: SectionsList) {
         self.showDetailsScreen(item: item)
     }
 }
 
 extension HomeScreenViewModel: SectionsListDataSourceProtocol{
-    func itemTapped(item: ItemItem, hasChilds: Bool) {
+    func itemTapped(item: SectionsList, hasChilds: Bool) {
         if !hasChilds {
             self.showDetailsScreen(item: item)
         }

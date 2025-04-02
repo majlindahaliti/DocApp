@@ -14,11 +14,6 @@ struct PageDetailsResponse: Codable {
 
 struct SectionsList: Codable {
     let type, title: String
-    let items: [ItemItem]
-}
-
-struct ItemItem: Codable {
-    let type, title: String
     let src: String?
-    let items: [ItemItem]?
+    let items: [SectionsList]?
 }

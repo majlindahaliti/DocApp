@@ -48,7 +48,9 @@ class HomeScreenViewController: UIViewController, Storyboarded {
             self.seAllPagesButton.isHidden = true
             if let items = self.viewModel?.page{
                 self.mainTitleLabel.text = items.title
-                print("sections", items.items)
+                if let sections = self.viewModel?.page?.items{
+                    self.viewModel?.populateTableView(data: sections)
+                }
             }
         }
     }

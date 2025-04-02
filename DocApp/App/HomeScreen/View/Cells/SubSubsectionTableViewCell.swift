@@ -14,7 +14,7 @@ class SubSubsectionTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     
 //    //MARK: - Properties
-    var sectionItem: ItemItem!{
+    var sectionItem: SectionsList!{
         didSet{
             setValues()
         }

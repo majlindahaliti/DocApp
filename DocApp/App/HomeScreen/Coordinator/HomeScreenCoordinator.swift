@@ -26,7 +26,7 @@ class HomeScreenCoordinator: PushCoordinator{
 }
 
 extension HomeScreenCoordinator: HomeScreenViewModelCoordinatorDelegate{
-    func showDetailsScreen(item: ItemItem) {
+    func showDetailsScreen(item: SectionsList) {
         detailsScreenCoordinator = DetailsScreenCoordinator(viewModel: DetailsScreenViewModel(item: item), navigationController: self.viewController?.navigationController)
         detailsScreenCoordinator?.start()
     }

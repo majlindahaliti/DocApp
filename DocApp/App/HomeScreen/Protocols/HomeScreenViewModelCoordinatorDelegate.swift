@@ -8,6 +8,6 @@
 import Foundation
 
 protocol HomeScreenViewModelCoordinatorDelegate: AnyObject {
-    func showDetailsScreen(item: ItemItem)
+    func showDetailsScreen(item: SectionsList)
     func showAllPages(pages: [SectionsList]?)
 }

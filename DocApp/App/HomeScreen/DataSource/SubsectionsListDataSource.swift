@@ -6,11 +6,11 @@
 //
 import UIKit
 protocol SubsectionsListDataSourceDataSourceProtocol: AnyObject{
-    func showDetails(item: ItemItem)
+    func showDetails(item: SectionsList)
 }
 class SubsectionsListDataSourceDataSource : NSObject ,UITableViewDelegate, UITableViewDataSource{
     //MARK: - Properties
-    var subsectionsList: [ItemItem]?
+    var subsectionsList: [SectionsList]?
     var delegate: SubsectionsListDataSourceDataSourceProtocol?
     //MARK: - Functions
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
