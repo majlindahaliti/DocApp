@@ -24,6 +24,7 @@ class HomeScreenViewController: UIViewController, Storyboarded {
         super.viewDidLoad()
         setupUI()
         setupTable()
+        getPageDetails()
     }
     
     //MARK: - Functions
@@ -42,6 +43,24 @@ class HomeScreenViewController: UIViewController, Storyboarded {
         self.tableView.registerHeaderFooter(PageExpandableSection.self)
         self.tableView.delegate = self.viewModel?.dataSource
         self.tableView.dataSource = self.viewModel?.dataSource
+    }
+    
+    func getPageDetails(){
+        self.viewModel?.getPageDetails(completion: { (response, error) in
+            if let model = response {
+                self.mainTitleLabel.text = model.title
+                self.viewModel?.populateTableView(data: model.items)
+                if response?.items.count == 0{
+                    self.noDataStackView.isHidden = false
+                }
+                dispatch {
+                    self.tableView.reloadData()
+                }
+            } else if let error = error {
+                self.noDataStackView.isHidden = false
+                print("Request failed with error: \(error.localizedDescription)")
+            }
+        })
     }
     
     //MARK: - IBActions

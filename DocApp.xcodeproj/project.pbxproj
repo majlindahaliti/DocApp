@@ -6,7 +6,14 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		0341C5D9A8220152176E74CA /* Pods_DocApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 483DD0D19611040796763CC5 /* Pods_DocApp.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		483DD0D19611040796763CC5 /* Pods_DocApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DocApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8BA6270E9F6D8D5C5B5688B /* Pods-DocApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DocApp.debug.xcconfig"; path = "Target Support Files/Pods-DocApp/Pods-DocApp.debug.xcconfig"; sourceTree = "<group>"; };
+		F6F21ACAEACA399C5E2A7E14 /* Pods-DocApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DocApp.release.xcconfig"; path = "Target Support Files/Pods-DocApp/Pods-DocApp.release.xcconfig"; sourceTree = "<group>"; };
 		F7A867FE2D9ADE5B00EF0D79 /* DocApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DocApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -36,17 +43,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0341C5D9A8220152176E74CA /* Pods_DocApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		25497FC1294802A8C32B88D7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C8BA6270E9F6D8D5C5B5688B /* Pods-DocApp.debug.xcconfig */,
+				F6F21ACAEACA399C5E2A7E14 /* Pods-DocApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		4E988AEB8B2C2A198194826A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				483DD0D19611040796763CC5 /* Pods_DocApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F7A867F52D9ADE5B00EF0D79 = {
 			isa = PBXGroup;
 			children = (
 				F7A868002D9ADE5B00EF0D79 /* DocApp */,
 				F7A867FF2D9ADE5B00EF0D79 /* Products */,
+				25497FC1294802A8C32B88D7 /* Pods */,
+				4E988AEB8B2C2A198194826A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -65,9 +92,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F7A868112D9ADE5D00EF0D79 /* Build configuration list for PBXNativeTarget "DocApp" */;
 			buildPhases = (
+				2075C2857BFBBCD61E0B236A /* [CP] Check Pods Manifest.lock */,
 				F7A867FA2D9ADE5B00EF0D79 /* Sources */,
 				F7A867FB2D9ADE5B00EF0D79 /* Frameworks */,
 				F7A867FC2D9ADE5B00EF0D79 /* Resources */,
+				D2B25947549BFEE83C525857 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -77,8 +106,6 @@
 				F7A868002D9ADE5B00EF0D79 /* DocApp */,
 			);
 			name = DocApp;
-			packageProductDependencies = (
-			);
 			productName = DocApp;
 			productReference = F7A867FE2D9ADE5B00EF0D79 /* DocApp.app */;
 			productType = "com.apple.product-type.application";
@@ -127,6 +154,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2075C2857BFBBCD61E0B236A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DocApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D2B25947549BFEE83C525857 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DocApp/Pods-DocApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DocApp/Pods-DocApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DocApp/Pods-DocApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F7A867FA2D9ADE5B00EF0D79 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -140,12 +209,14 @@
 /* Begin XCBuildConfiguration section */
 		F7A868122D9ADE5D00EF0D79 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C8BA6270E9F6D8D5C5B5688B /* Pods-DocApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = A966DJ88X2;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DocApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -168,12 +239,14 @@
 		};
 		F7A868132D9ADE5D00EF0D79 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F6F21ACAEACA399C5E2A7E14 /* Pods-DocApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = A966DJ88X2;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DocApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

@@ -9,6 +9,16 @@ import UIKit
 
 class SubSubsectionTableViewCell: UITableViewCell {
 
+    //MARK: - IBOutlets
+    @IBOutlet weak var coverImageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    
+//    //MARK: - Properties
+    var sectionItem: ItemItem!{
+        didSet{
+            setValues()
+        }
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,4 +30,7 @@ class SubSubsectionTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func setValues(){
+        self.titleLabel.text = sectionItem.title
+    }
 }

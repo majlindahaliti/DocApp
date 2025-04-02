@@ -8,18 +8,14 @@
 import UIKit
 
 protocol SectionsListDataSourceProtocol: AnyObject {
-    func itemTapped(item: SectionItem, hasChilds: Bool)
+    func itemTapped(item: ItemItem, hasChilds: Bool)
     func updateSection(section: [Int])
     func selectedRow(row: Int, hasChild: Bool)
 }
 
 class SectionsListDataSource: NSObject {
     // MARK: - Properties
-    var items: [(section: SectionItem, mItems: [SectionItem])] = [
-        (SectionItem(title: "Section 1"), [SectionItem(title: "Item 1.1"), SectionItem(title: "Item 1.2")]),
-        (SectionItem(title: "Section 2"), [SectionItem(title: "Item 2.1"), SectionItem(title: "Item 2.2")]),
-        (SectionItem(title: "Section 3"), [SectionItem(title: "Item 3.1"), SectionItem(title: "Item 3.2")])
-    ]
+    var items: [SectionsList] = []
     var expandedSectionHeaderNumber = -1
     weak var delegate: SectionsListDataSourceProtocol?
 }
@@ -38,13 +34,13 @@ extension SectionsListDataSource: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (self.expandedSectionHeaderNumber == section) ? items[section].mItems.count : 0
+        return (self.expandedSectionHeaderNumber == section) ? items[section].items.count : 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = self[indexPath]
         let cell = tableView.dequeue(SubsectionTableViewCell.self, for: indexPath)
-//        cell.setRowText(string: item.title)
+        cell.sectionItem = item
         cell.selectionStyle = .none
         
         return cell
@@ -60,7 +56,7 @@ extension SectionsListDataSource: UITableViewDataSource, UITableViewDelegate {
         headerTapGesture.addTarget(self, action: #selector(SectionsListDataSource.sectionHeaderWasTouched(_:)))
         headerView.addGestureRecognizer(headerTapGesture)
         
-        if items[section].mItems.count > 0 {
+        if items[section].items.count > 0 {
             headerView.expnad(should: self.expandedSectionHeaderNumber == section)
         }else{
             headerView.detailImageView.isHidden = true
@@ -71,9 +67,9 @@ extension SectionsListDataSource: UITableViewDataSource, UITableViewDelegate {
     @objc private func sectionHeaderWasTouched(_ sender: UITapGestureRecognizer) {
         let headerView = sender.view as! UITableViewHeaderFooterView
         let section    = headerView.tag
-        let item = self.items[section].section
-        self.delegate?.itemTapped(item: item, hasChilds: items[section].mItems.count > 0)
-        self.delegate?.selectedRow(row: section, hasChild: items[section].mItems.count > 0)
+        let item = self.items[section].items[section]
+        self.delegate?.itemTapped(item: item, hasChilds: items[section].items.count > 0)
+        self.delegate?.selectedRow(row: section, hasChild: items[section].items.count > 0)
         
         if (self.expandedSectionHeaderNumber == -1) {
             self.expandedSectionHeaderNumber = section
@@ -98,17 +94,12 @@ extension SectionsListDataSource: UITableViewDataSource, UITableViewDelegate {
 }
 
 extension SectionsListDataSource {
-    subscript(indexPath: IndexPath) -> SectionItem {
-        return self.items[indexPath.section].mItems[indexPath.row]
+    subscript(indexPath: IndexPath) -> ItemItem {
+        return self.items[indexPath.section].items[indexPath.row]
     }
     
-    subscript(section: Int) -> SectionItem {
-        return self.items[section].section
+    subscript(section: Int) -> SectionsList {
+        return self.items[section]
     }
 }
-
-struct SectionItem {
-    let title: String
-}
-
 

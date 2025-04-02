@@ -16,6 +16,13 @@ class SubsectionTableViewCell: UITableViewCell {
     
     var viewModel: HomeScreenViewModelProtocol?
     
+    //MARK: - Properties
+    var sectionItem: ItemItem!{
+        didSet{
+            setValues()
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setupTable()
@@ -32,6 +39,14 @@ class SubsectionTableViewCell: UITableViewCell {
         self.viewModel = HomeScreenViewModel()
         self.tableView.dataSource = self.viewModel?.subsectionsDataSource
         self.tableView.register(SubSubsectionTableViewCell.self)
-        self.tableViewHeightConstraint.constant = self.tableView.intrinsicContentSize.height
+    }
+    
+    func setValues(){
+        self.titleLabel.text = sectionItem.title
+        if let subsections = sectionItem.items{
+            self.viewModel?.populateSubsections(data: subsections)
+            self.tableView.reloadData()
+            self.tableViewHeightConstraint.constant = self.tableView.intrinsicContentSize.height
+        }
     }
 }

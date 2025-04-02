@@ -17,6 +17,15 @@ class HomeScreenViewModel: HomeScreenViewModelProtocol{
         dataSource?.delegate = self
     }
     
+    func getPageDetails(completion: @escaping ((PageDetailsResponse?, Error?) -> Void)) {
+        let client = PageDetailsClient.getPageDetails()
+        client.execute(onSuccess: { response in
+            completion(response, nil) // Success
+        }, onFailure: { error in
+            completion(nil, error) // Failure
+        })
+    }
+    
     func showDetailsScreen() {
         self.coordinatorDelegate?.showDetailsScreen()
     }
@@ -24,10 +33,18 @@ class HomeScreenViewModel: HomeScreenViewModelProtocol{
     func showAllPages() {
         self.coordinatorDelegate?.showAllPages()
     }
+    
+    func populateTableView(data: [SectionsList]) {
+        self.dataSource?.items = data
+    }
+    
+    func populateSubsections(data: [ItemItem]) {
+        self.subsectionsDataSource?.subsectionsList = data
+    }
 }
 
 extension HomeScreenViewModel: SectionsListDataSourceProtocol{
-    func itemTapped(item: SectionItem, hasChilds: Bool) {
+    func itemTapped(item: ItemItem, hasChilds: Bool) {
         if hasChilds {
             self.viewDelegate?.reloadTable()
         }else{

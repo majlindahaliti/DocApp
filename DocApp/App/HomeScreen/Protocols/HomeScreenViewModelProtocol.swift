@@ -14,4 +14,8 @@ protocol HomeScreenViewModelProtocol : BaseViewModel {
     var viewDelegate: HomeScreenViewModelViewProtocol? {get set}
     func showDetailsScreen()
     func showAllPages()
+    func populateTableView(data: [SectionsList])
+    func populateSubsections(data: [ItemItem])
+    
+    func getPageDetails(completion: @escaping ((PageDetailsResponse?, Error?) -> Void))
 }
