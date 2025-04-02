@@ -32,5 +32,12 @@ class SubSubsectionTableViewCell: UITableViewCell {
     
     func setValues(){
         self.titleLabel.text = sectionItem.title
+        if let cover = sectionItem.src{
+            self.coverImageView.isHidden = false
+            self.coverImageView.setImage(with: cover)
+        }
+        else{
+            self.coverImageView.isHidden = true
+        }
     }
 }

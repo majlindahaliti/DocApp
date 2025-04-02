@@ -8,5 +8,6 @@ target 'DocApp' do
   # Pods for DocApp
   pod 'Alamofire'
   pod 'PromisedFuture'
-
+  pod 'Kingfisher'
+  
 end

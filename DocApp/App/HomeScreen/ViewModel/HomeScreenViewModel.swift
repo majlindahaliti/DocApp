@@ -26,8 +26,8 @@ class HomeScreenViewModel: HomeScreenViewModelProtocol{
         })
     }
     
-    func showDetailsScreen() {
-        self.coordinatorDelegate?.showDetailsScreen()
+    func showDetailsScreen(item: ItemItem) {
+        self.coordinatorDelegate?.showDetailsScreen(item: item)
     }
     
     func showAllPages(pages: [SectionsList]?) {
@@ -49,7 +49,7 @@ extension HomeScreenViewModel: SectionsListDataSourceProtocol{
         if hasChilds {
             self.viewDelegate?.reloadTable()
         }else{
-//            self.didSelectItem(item: item)
+            self.showDetailsScreen(item: item)
         }
     }
     

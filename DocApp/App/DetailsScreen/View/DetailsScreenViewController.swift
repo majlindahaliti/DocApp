@@ -11,6 +11,8 @@ class DetailsScreenViewController: UIViewController, Storyboarded {
     
     //MARK: - IBOutlets
     @IBOutlet weak var coverImageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var bodyLabel: UILabel!
     
     //MARK: - Properties
     var viewModel: DetailsScreenViewModelProtocol?
@@ -19,12 +21,26 @@ class DetailsScreenViewController: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setValues()
     }
     
     func setupUI(){
         dispatch{
             self.coverImageView.roundCorners(corners: [.bottomRight, .bottomLeft], radius: 30)
         }
+    }
+    
+    func setValues(){
+        if let img = self.viewModel?.item?.src{
+            self.coverImageView.setImage(with: img)
+        }
+        self.titleLabel.text = self.viewModel?.item?.title
+//        self.bodyLabel.text = self.viewModel.
+    }
+    
+    //MARK: - IBActions
+    @IBAction func backButtonPressed(_ sender: Any) {
+        self.coordinator?.stop()
     }
 }
 

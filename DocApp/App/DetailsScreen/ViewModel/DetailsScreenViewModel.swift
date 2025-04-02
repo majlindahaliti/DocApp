@@ -9,4 +9,10 @@ import Foundation
 
 class DetailsScreenViewModel: DetailsScreenViewModelProtocol{
     weak var coordinatorDelegate : DetailsScreenViewModelCoordinatorDelegate?
+    
+    var item: ItemItem?
+    
+    public init(item: ItemItem?){
+        self.item = item
+    }
 }

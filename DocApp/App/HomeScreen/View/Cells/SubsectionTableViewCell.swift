@@ -48,6 +48,13 @@ class SubsectionTableViewCell: UITableViewCell {
     func setValues(){
         self.viewModel?.populateSubsections(data: [])
         self.titleLabel.text = sectionItem.title
+        if let cover = sectionItem.src{
+            self.coverImageView.isHidden = false
+            self.coverImageView.setImage(with: cover)
+        }
+        else{
+            self.coverImageView.isHidden = true
+        }
         if let subsections = sectionItem.items{
             self.viewModel?.populateSubsections(data: subsections)
         }

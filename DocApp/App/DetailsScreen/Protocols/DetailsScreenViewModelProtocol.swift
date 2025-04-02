@@ -9,4 +9,5 @@ import Foundation
 
 protocol DetailsScreenViewModelProtocol : BaseViewModel {
     var coordinatorDelegate : DetailsScreenViewModelCoordinatorDelegate? {get set}
+    var item: ItemItem? {get set}
 }
