@@ -1,0 +1,32 @@
+PODS:
+  - Alamofire (5.9.1)
+  - ImageViewer.swift (3.3.8)
+  - Kingfisher (8.0.3)
+  - lottie-ios (4.5.0)
+  - PromisedFuture (1.0.2)
+
+DEPENDENCIES:
+  - Alamofire
+  - ImageViewer.swift (~> 3.0)
+  - Kingfisher
+  - lottie-ios
+  - PromisedFuture
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - ImageViewer.swift
+    - Kingfisher
+    - lottie-ios
+    - PromisedFuture
+
+SPEC CHECKSUMS:
+  Alamofire: f36a35757af4587d8e4f4bfa223ad10be2422b8c
+  ImageViewer.swift: 284cd8127d31af8e5938674fb9f8e695a4cdf6c6
+  Kingfisher: bbf78af014cc845cf9a799363f627b5212784165
+  lottie-ios: a881093fab623c467d3bce374367755c272bdd59
+  PromisedFuture: 15ab3542f9d9c9d62886e2228c606a3e0fd16ccd
+
+PODFILE CHECKSUM: 6e0110254ff83bcb7f4a8176a7e115533716ae1b
+
+COCOAPODS: 1.16.2
