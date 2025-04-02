@@ -8,9 +8,14 @@
 import Foundation
 import UIKit
 
+protocol AllPagesDataSourceProtocol: AnyObject{
+    func showMainScreen(item: SectionsList?)
+}
+
 class AllPagesDataSource : NSObject ,UITableViewDelegate, UITableViewDataSource{
     //MARK: - Properties
     var allPages: [SectionsList]?
+    var delegate: AllPagesDataSourceProtocol?
     
     //MARK: - Functions
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -26,5 +31,9 @@ class AllPagesDataSource : NSObject ,UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.delegate?.showMainScreen(item: allPages?[indexPath.row])
     }
 }

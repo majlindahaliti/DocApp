@@ -26,7 +26,7 @@ class SplashCoordinator: DefaultCoordinator{
 
 extension SplashCoordinator: SplashViewModelCoordinatorDelegate{
     func splashScreenShown() {
-        homeCoordinator = HomeScreenCoordinator(viewModel: HomeScreenViewModel(), navigationController: viewController?.navigationController)
+        homeCoordinator = HomeScreenCoordinator(viewModel: HomeScreenViewModel(page: nil, showBack: false), navigationController: viewController?.navigationController)
         homeCoordinator?.start()
     }
 }

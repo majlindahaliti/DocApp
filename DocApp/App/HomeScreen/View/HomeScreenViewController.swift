@@ -15,6 +15,9 @@ class HomeScreenViewController: UIViewController, Storyboarded {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var noDataStackView: UIStackView!
     @IBOutlet weak var mainTitleLabel: UILabel!
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var seAllPagesButton: UIButton!
+    @IBOutlet weak var backButtonHeightConstraint: NSLayoutConstraint!
     
     //MARK: - Properties
     var viewModel: HomeScreenViewModelProtocol?
@@ -25,7 +28,6 @@ class HomeScreenViewController: UIViewController, Storyboarded {
         super.viewDidLoad()
         setupUI()
         setupTable()
-        getPageDetails()
     }
     
     //MARK: - Functions
@@ -36,6 +38,18 @@ class HomeScreenViewController: UIViewController, Storyboarded {
         dispatch{
             self.containerView.roundCorners(corners: [.topLeft, .topRight], radius: 30)
             self.tableView.contentInset = UIEdgeInsets(top: 16, left: 0, bottom: 0, right: 0)
+        }
+        if self.viewModel?.showBack == false{
+            self.backButton.isHidden = true
+            self.backButtonHeightConstraint.constant = 0
+            getPageDetails()
+        }
+        else{
+            self.seAllPagesButton.isHidden = true
+            if let items = self.viewModel?.page{
+                self.mainTitleLabel.text = items.title
+                print("sections", items.items)
+            }
         }
     }
     
@@ -69,6 +83,9 @@ class HomeScreenViewController: UIViewController, Storyboarded {
     @IBAction func seeAllPagesButtonPressed(_ sender: Any) {
         let filteredData = sectionsList?.filter { $0.type == "page" }
         self.viewModel?.showAllPages(pages: filteredData)
+    }
+    @IBAction func backButtonPressed(_ sender: Any) {
+        self.coordinator?.stop()
     }
 }
 

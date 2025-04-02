@@ -40,7 +40,7 @@ class SubsectionTableViewCell: UITableViewCell {
     }
     
     func setupTable(){
-        self.viewModel = HomeScreenViewModel()
+        self.viewModel = HomeScreenViewModel(page: nil, showBack: nil)
         self.tableView.dataSource = self.viewModel?.subsectionsDataSource
         self.tableView.delegate = self.viewModel?.subsectionsDataSource
         self.tableView.register(SubSubsectionTableViewCell.self)

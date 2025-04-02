@@ -8,5 +8,5 @@
 import Foundation
 
 protocol AllPagesViewModelCoordinatorDelegate: AnyObject {
-
+    func showMainScreen(showBack: Bool, page: SectionsList)
 }

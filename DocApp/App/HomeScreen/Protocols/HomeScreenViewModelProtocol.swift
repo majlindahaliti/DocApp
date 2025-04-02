@@ -12,6 +12,8 @@ protocol HomeScreenViewModelProtocol : BaseViewModel {
     var dataSource: SectionsListDataSource? {get}
     var subsectionsDataSource: SubsectionsListDataSourceDataSource? {get}
     var viewDelegate: HomeScreenViewModelViewProtocol? {get set}
+    var page: SectionsList? {get set}
+    var showBack: Bool? {get set}
     func showDetailsScreen(item: ItemItem)
     func showAllPages(pages: [SectionsList]?)
     func populateTableView(data: [SectionsList])

@@ -10,4 +10,5 @@ import Foundation
 protocol AllPagesViewModelProtocol : BaseViewModel {
     var coordinatorDelegate : AllPagesViewModelCoordinatorDelegate? {get set}
     var dataSource: AllPagesDataSource? {get}
+    func showMainScreen(showBack: Bool, page: SectionsList)
 }

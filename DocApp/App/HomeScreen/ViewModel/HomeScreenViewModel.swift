@@ -10,12 +10,16 @@ class HomeScreenViewModel: HomeScreenViewModelProtocol{
     var dataSource: SectionsListDataSource?
     var subsectionsDataSource: SubsectionsListDataSourceDataSource?
     weak var viewDelegate: HomeScreenViewModelViewProtocol?
+    var page: SectionsList?
+    var showBack: Bool?
     
-    public init(){
+    public init(page: SectionsList?, showBack: Bool?){
         dataSource = SectionsListDataSource()
         subsectionsDataSource = SubsectionsListDataSourceDataSource()
         dataSource?.delegate = self
         subsectionsDataSource?.delegate = self
+        self.page = page
+        self.showBack = showBack
     }
     
     func getPageDetails(completion: @escaping ((PageDetailsResponse?, Error?) -> Void)) {
