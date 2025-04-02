@@ -18,6 +18,8 @@ protocol HomeScreenViewModelProtocol : BaseViewModel {
     func showAllPages(pages: [SectionsList]?)
     func populateTableView(data: [SectionsList])
     func populateSubsections(data: [SectionsList])
+    func filterResults(with searchText: String)
+    var filteredResults: [SectionsList]? { get set }
     
     func getPageDetails(completion: @escaping ((PageDetailsResponse?, Error?) -> Void))
 }

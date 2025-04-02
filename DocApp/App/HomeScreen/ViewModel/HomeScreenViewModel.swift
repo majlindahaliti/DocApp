@@ -12,6 +12,8 @@ class HomeScreenViewModel: HomeScreenViewModelProtocol{
     weak var viewDelegate: HomeScreenViewModelViewProtocol?
     var page: SectionsList?
     var showBack: Bool?
+    var filteredResults: [SectionsList]?
+    var sectionsList: [SectionsList] = []
     
     public init(page: SectionsList?, showBack: Bool?){
         dataSource = SectionsListDataSource()
@@ -25,10 +27,25 @@ class HomeScreenViewModel: HomeScreenViewModelProtocol{
     func getPageDetails(completion: @escaping ((PageDetailsResponse?, Error?) -> Void)) {
         let client = PageDetailsClient.getPageDetails()
         client.execute(onSuccess: { response in
+            self.sectionsList = response.items
             completion(response, nil) // Success
         }, onFailure: { error in
             completion(nil, error) // Failure
         })
+    }
+    
+    func filterResults(with searchText: String) {
+        if searchText.isEmpty {
+            filteredResults = sectionsList
+          } else {
+              filteredResults = sectionsList.filter { square in
+                  let name = square.title.lowercased()
+                  return name.contains(searchText.lowercased())
+              }
+          }
+        if let results = filteredResults{
+            self.populateTableView(data: results)
+        }
     }
     
     func showDetailsScreen(item: SectionsList) {

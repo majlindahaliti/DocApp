@@ -81,6 +81,15 @@ class HomeScreenViewController: UIViewController, Storyboarded {
         })
     }
     
+    func filterText(_ searchText: String) {
+        viewModel?.filterResults(with: searchText)
+        
+        //update UI
+        self.tableView.reloadData()
+        self.noDataStackView.isHidden = !(self.viewModel?.filteredResults?.isEmpty ?? true)
+
+    }
+    
     //MARK: - IBActions
     @IBAction func seeAllPagesButtonPressed(_ sender: Any) {
         let filteredData = sectionsList?.filter { $0.type == "page" }
@@ -94,6 +103,13 @@ class HomeScreenViewController: UIViewController, Storyboarded {
 extension HomeScreenViewController : HomeScreenViewModelViewProtocol {
     func updateSection(section: [Int]) {
         self.tableView.reloadSections(IndexSet(section), with: .none)
+    }
+}
+
+extension HomeScreenViewController: UITextFieldDelegate{
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        let search = textField.text ?? ""
+        filterText(search)
     }
 }
 
