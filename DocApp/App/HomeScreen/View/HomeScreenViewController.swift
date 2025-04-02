@@ -63,7 +63,11 @@ class HomeScreenViewController: UIViewController, Storyboarded {
     }
     
     func getPageDetails(){
+        // Show loader
+        LottieLoader.shared.showLoader()
         self.viewModel?.getPageDetails(completion: { (response, error) in
+            // Hide loader
+            LottieLoader.shared.hideLoader()
             if let model = response {
                 self.sectionsList = model.items
                 self.mainTitleLabel.text = model.title

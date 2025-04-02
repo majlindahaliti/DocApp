@@ -1,5 +1,4 @@
-# Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '13.0'
 
 target 'DocApp' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -10,5 +9,6 @@ target 'DocApp' do
   pod 'PromisedFuture'
   pod 'Kingfisher'
   pod 'ImageViewer.swift', '~> 3.0'
+  pod 'lottie-ios'
   
 end
