@@ -57,11 +57,6 @@ Since there is a list of data, it is preferable to implement pagination in order
 
 ## App Installation
 
-Before running the project, ensure you have the following installed:  
-- **macOS** with the latest updates  
-- **Xcode** (latest stable version)  
-- **CocoaPods** (if dependencies are managed with it)  
-
 ### 1️⃣ Clone the Repository  
 
 git clone <repository-url>
