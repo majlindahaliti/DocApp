@@ -24,7 +24,7 @@ There is a scrollable list with expandable items, displaying sections of the pag
 
 ## UI/UX - Figma
 
-The app’s UI/UX design was created by me using Figma. The layout is clean and intuitive, with a focus on usability and aesthetics. Below there is a screenshot showing the design.
+The app’s UI/UX design was created by me using Figma. Below there is a screenshot showing the design.
 
 <img width="1233" alt="Screenshot 2025-04-02 at 22 33 45" src="https://github.com/user-attachments/assets/00584364-1626-4be0-897b-61657c3f6ef0" />
 
